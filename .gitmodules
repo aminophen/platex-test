@@ -1,3 +1,6 @@
 [submodule "platex"]
 	path = platex
 	url = https://github.com/texjporg/platex
+[submodule "uplatex"]
+	path = uplatex
+	url = https://github.com/texjporg/uplatex
