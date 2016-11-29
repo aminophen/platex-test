@@ -1,0 +1,23 @@
+os:
+  - osx
+install:
+  - wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+  - tar xvf install-tl-unx.tar.gz
+  - cd install-tl*
+  - echo "I" | sudo ./install-tl --scheme small --repository http://mirror.ctan.org/systems/texlive/tlnet/
+  - sudo /usr/local/texlive/????/bin/*/tlmgr path add
+  - sudo tlmgr update --self --all
+  - sudo tlmgr install collection-langjapanese collection-fontsrecommended ucs
+script:
+  - cd platex
+  - make cleanstrip
+  - make strip
+  - fmtutil --byfmt platex
+#  - cd tests
+#  - make cleanup
+#  - make test
+  - cd ..
+  - cd uplatex
+  - make cleanstrip
+  - make strip
+  - fmtutil --byfmt uplatex
